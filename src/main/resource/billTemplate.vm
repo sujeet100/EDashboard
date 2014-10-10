@@ -1,16 +1,15 @@
 <div>
     <div>
-    <h1 id="bill-amount"><span>&pound;145.60</span></h1>
+    <h1 id="bill-amount"><span>&pound;$bill.billAmount</span></h1>
     <div>
         <!-- ngIf: !billProfile.isMultiMsisdn -->
         <div>
             <div>Date issued</div>
-            <div id="bill-date">01 March 2013</div>
+            <div id="bill-date">$bill.dateIssued</div>
         </div>
         <div>
             <div>Billing period</div>
-            <div id="bill-period">01 February 2013 -
-                01 March 2013
+            <div id="bill-period">$bill.billPeriod
             </div>
         </div>
     </div>

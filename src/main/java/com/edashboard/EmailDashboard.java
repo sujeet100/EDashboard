@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class EmailDashboard {
 
-    public void sendMail() throws EmailException {
+    public void sendMail(String msisdn) throws EmailException {
         HtmlEmail email = new HtmlEmail();
         List<String> list = new ArrayList<String>();
         list.add("sujit");
@@ -20,12 +20,12 @@ public class EmailDashboard {
         email.setSSLOnConnect(true);
         email.setFrom("sujeet100@gmail.com");
         email.setSubject("TestMail");
-        email.setHtmlMsg(new EmailBody().generateEmailBody());
+        email.setHtmlMsg(new EmailBody().generateEmailBody(msisdn));
         email.addTo("vibhor.mahajan@cognizant.com");
         email.send();
     }
 
     public static void main(String args[]) throws EmailException {
-        new EmailDashboard().sendMail();
+        new EmailDashboard().sendMail("011102021");
     }
 }
