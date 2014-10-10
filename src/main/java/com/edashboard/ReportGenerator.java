@@ -7,7 +7,7 @@ import org.apache.commons.mail.EmailException;
  */
 public class ReportGenerator {
 
-    public void main(String args[]) throws EmailException {
+    public static void main(String args[]) throws EmailException {
         String msisdn = args[0];
         new EmailDashboard().sendMail(msisdn);
     }

@@ -19,19 +19,7 @@ import java.io.StringWriter;
  */
 public class EmailBody {
 
-    public String generateEmailBody(String msisdn){
-        Client client = Client.create();
-        WebResource resource = client.resource("http://localhost:8882/"+msisdn+"/bill");
-        ClientResponse response = resource.accept("application/json")
-                .get(ClientResponse.class);
-        Bill bill = response.getEntity(Bill.class);
-
-
-        return getBody(bill);
-
-    }
-
-    private String getBody(Bill bill) {
+    public String getBody(Bill bill) {
         VelocityEngine velocityEngine = new VelocityEngine();
         velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADER,"classpath");
         velocityEngine.setProperty("classpath.resource.loader.class",ClasspathResourceLoader.class.getName());
@@ -42,9 +30,5 @@ public class EmailBody {
         StringWriter writer = new StringWriter();
         t.merge(context, writer);
         return  writer.toString();
-    }
-
-    public static void main(String args[]) throws EmailException {
-        System.out.println(new EmailBody().generateEmailBody("011102021"));
     }
 }

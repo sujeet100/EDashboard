@@ -1,18 +1,101 @@
+<style type="text/css">
+
+    body{
+    font-family: "Trebuchet MS",
+    Arial, Helvetica, sans-serif;
+    }
+
+    th{
+    font-family: "Trebuchet MS",
+    Arial, Helvetica, sans-serif;
+    font-size: medium;
+    background-color: #87c4cc;
+    color: #FFF;
+    width: 100px;
+    text-align:center;
+    font-weight: bold;
+    }
+
+    td {
+    text-align:left;
+    font-family: "Comic Sans MS", cursive;
+    padding-left: 20px;
+    }
+    #bill-amount{
+    font-size: 40px;
+    color:#032b5a;
+    font-family: "Trebuchet MS",
+    Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    padding-top:10px;
+    padding-bottom:10px;
+    }
+    #trend{
+        padding-top:40px;
+    }
+
+   .cta{
+    background-size: auto 14px;
+    background-position: left top;
+    padding-left: 21px;
+    color: #3da1dc;
+    padding-top:10px;
+    }
+
+    #msisdn{
+        float: right;
+        padding-right: 400px;
+        color:#032b5a;
+    }
+    .link1{
+        padding-left:5px;
+    }
+
+    .link2{
+        padding-left:95px;
+    }
+
+    #latest-bill{
+    padding-top:10px;
+    font-size: 18px;
+    }
+
+    #links{
+        padding-top: 20px;
+    }
+
+</style>
 <div>
+    <p>Hi $bill.name,</p>
+    <p>This is not just a latest bill but a comprehensive analysis to help you to make most of our services.</p>
+
+    <div id="msisdn">$bill.msisdn</div>
+
     <div>
-    <h1 id="bill-amount"><span>&pound;$bill.billAmount</span></h1>
+        <p id="latest-bill">Your latest bill:</p>
+    <div id="bill-amount"><span>&pound;$bill.billAmount</span></div>
     <div>
-        <!-- ngIf: !billProfile.isMultiMsisdn -->
-        <div>
-            <div>Date issued</div>
-            <div id="bill-date">$bill.dateIssued</div>
-        </div>
-        <div>
-            <div>Billing period</div>
-            <div id="bill-period">$bill.billPeriod
-            </div>
+        <table id="bill-summary" width="50%">
+            <tr>
+                <th>Date issued</th>
+                <th>Billing period</th>
+                <th>Payment due date</th>
+            </tr>
+            <tr>
+                <td width="25%">$bill.dateIssued</td>
+                <td width="50%">$bill.billPeriod</td>
+                <td width="25%">$bill.billDueDate</td>
+            </tr>
+
+
+        </table>
+        <div id="links">
+            <span class="link1"><a class="cta" href="http://www.o2.co.uk/"><img src="http://192.168.2.105/img/highend/cta_link.png"/>Make a payment</a></span>
+            <span class="link2"><a class="cta" href="http://www.o2.co.uk/"><img src="http://192.168.2.105/img/highend/cta_link.png"/>Change tariff</a></span>
         </div>
     </div>
-    <div id="device-plan-message">This bill is for your Airtime Plan only. There is a separate monthly payment for your <a href="">Device Plan.</a></div>
+        <div id="trend">
+            <img src="http://192.168.2.105/bill/${bill.billTrendChart}"/>
+        </div>
 </div>
 </div>

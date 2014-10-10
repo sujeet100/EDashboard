@@ -12,6 +12,34 @@ public class Bill {
     private String dateIssued;
     private String billPeriod;
     private String billDueDate;
+    private String billTrendChart;
+    private String name;
+    private String msisdn;
+    private String email;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMsisdn() {
+        return msisdn;
+    }
+
+    public void setMsisdn(String msisdn) {
+        this.msisdn = msisdn;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getBillAmount() {
         return billAmount;
@@ -43,5 +71,13 @@ public class Bill {
 
     public void setBillDueDate(String billDueDate) {
         this.billDueDate = billDueDate;
+    }
+
+    public String getBillTrendChart() {
+        return billTrendChart;
+    }
+
+    public void setBillTrendChart(String billTrendChart) {
+        this.billTrendChart = billTrendChart;
     }
 }
