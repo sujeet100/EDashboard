@@ -1,8 +1,8 @@
 {
 "billAmount":"26",
-"dateIssued": "20-Oct-2014",
-"billPeriod": "20-Sept-2014 - 19-Oct-2014",
-"billDueDate":"30-Oct-2014",
+"dateIssued": "20 Oct 2014",
+"billPeriod": "20 Sept 2014 - 19 Oct 2014",
+"billDueDate":"30 Oct 2014",
 "billTrendChart":"bill-trend-011102021.png",
 "name":"John",
 "msisdn":"011102021",
