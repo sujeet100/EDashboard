@@ -16,6 +16,15 @@ public class Bill {
     private String name;
     private String msisdn;
     private String email;
+    private String upgradeMessage;
+
+    public String getUpgradeMessage() {
+        return upgradeMessage;
+    }
+
+    public void setUpgradeMessage(String upgradeMessage) {
+        this.upgradeMessage = upgradeMessage;
+    }
 
     public String getName() {
         return name;

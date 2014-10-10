@@ -11,5 +11,31 @@
       },
       "file": "011102021-bill.json"
     }
-  }
+  },
+  {
+      "request": {
+        "url": "/011102022/bill",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "file": "011102022-bill.json"
+      }
+    },
+    {
+        "request": {
+          "url": "/011102023/bill",
+          "method": "GET"
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "file": "011102023-bill.json"
+        }
+      }
 ]
