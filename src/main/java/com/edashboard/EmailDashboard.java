@@ -1,9 +1,6 @@
 package com.edashboard;
 
-import org.apache.commons.mail.DefaultAuthenticator;
-import org.apache.commons.mail.Email;
-import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.SimpleEmail;
+import org.apache.commons.mail.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,17 +11,17 @@ import java.util.List;
 public class EmailDashboard {
 
     public void sendMail() throws EmailException {
-        Email email = new SimpleEmail();
+        HtmlEmail email = new HtmlEmail();
         List<String> list = new ArrayList<String>();
         list.add("sujit");
         email.setHostName("smtp.googlemail.com");
         email.setSmtpPort(465);
-        email.setAuthenticator(new DefaultAuthenticator("sujeet100", "<ActualPassword>"));
+        email.setAuthenticator(new DefaultAuthenticator("sujeet100", "Hangar18Master"));
         email.setSSLOnConnect(true);
         email.setFrom("sujeet100@gmail.com");
         email.setSubject("TestMail");
-        email.setMsg("This is a test mail ... :-)");
-        email.addTo("sujeet100@gmail.com");
+        email.setHtmlMsg(new EmailBody().generateEmailBody());
+        email.addTo("vibhor.mahajan@cognizant.com");
         email.send();
     }
 
