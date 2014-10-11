@@ -37,4 +37,23 @@ public class EmailDashboard {
     public static void main(String args[]) throws EmailException {
         new EmailDashboard().sendMail("011102021");
     }
+
+    public void sendThresholdMail(String msisdn) throws EmailException {
+        Client client = Client.create();
+        WebResource resource = client.resource("http://localhost:8882/"+msisdn+"/bill");
+        ClientResponse response = resource.accept("application/json")
+                .get(ClientResponse.class);
+        Bill bill = response.getEntity(Bill.class);
+
+        HtmlEmail email = new HtmlEmail();
+        email.setHostName("smtp.googlemail.com");
+        email.setSmtpPort(465);
+        email.setAuthenticator(new DefaultAuthenticator("sujeet100", "Hangar18Master"));
+        email.setSSLOnConnect(true);
+        email.setFrom("sujeet100@gmail.com");
+        email.setSubject("You are running out of data!");
+        email.setHtmlMsg(new EmailBody().getThresholdBody(bill));
+        email.addTo(bill.getEmail());
+        email.send();
+    }
 }

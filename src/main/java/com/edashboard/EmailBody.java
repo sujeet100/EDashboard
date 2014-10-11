@@ -31,4 +31,17 @@ public class EmailBody {
         t.merge(context, writer);
         return  writer.toString();
     }
+
+    public String getThresholdBody(Bill bill) {
+        VelocityEngine velocityEngine = new VelocityEngine();
+        velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADER,"classpath");
+        velocityEngine.setProperty("classpath.resource.loader.class",ClasspathResourceLoader.class.getName());
+        velocityEngine.init();
+        Template t = velocityEngine.getTemplate( "thresholdTemplate.vm" );
+        VelocityContext context = new VelocityContext();
+        context.put("bill", bill);
+        StringWriter writer = new StringWriter();
+        t.merge(context, writer);
+        return  writer.toString();
+    }
 }
